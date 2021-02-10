@@ -145,7 +145,13 @@ header {
     position: absolute;
     left: -50px;
     bottom: -50px;
+    cursor: pointer;
+    transition: transform .2s linear;
 }
+
+/* .tickets__item:hover {
+    transform: scale(1.1);
+} */
 
 .tickets__wrap {
     display: flex;
@@ -227,6 +233,10 @@ header {
     overflow: hidden;
     transform: translateX(120%);
     transition: transform .1s ease-in-out;
+}
+
+.show {
+    transform: translateX(0);
 }
 
 .payment__button {

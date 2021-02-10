@@ -1,0 +1,273 @@
+{
+ "placesMap": [
+  {
+  "id": 1,
+  "price": 290,
+  "priceGroup": "parter-row-1-1",
+  "imagePosition": {
+   "x": 10,
+   "y": 190
+  },
+  "humanizedPosition": {
+   "row": 1,
+   "place": 1
+  },
+  "state": "available"
+ }, 
+ {
+  "id": 2,
+  "price": 290,
+  "priceGroup": "parter-row-1-1",
+  "imagePosition": {
+   "x": 50,
+   "y": 190
+  },
+  "humanizedPosition": {
+   "row": 1,
+   "place": 2
+  },
+  "state": "booked"
+ }, 
+ {
+  "id": 3,
+  "price": 290,
+  "priceGroup": "parter-row-1-1",
+  "imagePosition": {
+   "x": 90,
+   "y": 190
+  },
+  "humanizedPosition": {
+   "row": 1,
+   "place": 3
+  },
+  "state": "booked"
+ }, 
+ {
+  "id": 4,
+  "price": 290,
+  "priceGroup": "parter-row-1-1",
+  "imagePosition": {
+   "x": 250,
+   "y": 250
+  },
+  "humanizedPosition": {
+   "row": 1,
+   "place": 4
+  },
+  "state": "booked"
+ }, 
+ {
+  "id": 5,
+  "price": 290,
+  "priceGroup": "parter-row-1-1",
+  "imagePosition": {
+   "x": 290,
+   "y": 250
+  },
+  "humanizedPosition": {
+   "row": 1,
+   "place": 5
+  },
+  "state": "booked"
+ }, 
+ {
+  "id": 6,
+  "price": 290,
+  "priceGroup": "parter-row-1-1",
+  "imagePosition": {
+   "x": 330,
+   "y": 250
+  },
+  "humanizedPosition": {
+   "row": 1,
+   "place": 8
+  },
+  "state": "booked"
+ },
+ {
+  "id": 7,
+  "price": 290,
+  "priceGroup": "parter-row-1-1",
+  "imagePosition": {
+   "x": 510,
+   "y": 190
+  },
+  "humanizedPosition": {
+   "row": 1,
+   "place": 6
+  },
+  "state": "booked"
+ }, 
+ {
+  "id": 8,
+  "price": 290,
+  "priceGroup": "parter-row-1-1",
+  "imagePosition": {
+   "x": 550,
+   "y": 190
+  },
+  "humanizedPosition": {
+   "row": 1,
+   "place": 7
+  },
+  "state": "booked"
+ }, 
+ {
+  "id": 9,
+  "price": 290,
+  "priceGroup": "parter-row-1-1",
+  "imagePosition": {
+   "x": 590,
+   "y": 190
+  },
+  "humanizedPosition": {
+   "row": 1,
+   "place": 8
+  },
+  "state": "booked"
+ },
+ 
+ {
+  "id": 11,
+  "price": 290,
+  "priceGroup": "parter-row-1-1",
+  "imagePosition": {
+   "x": 10,
+   "y": 230
+  },
+  "humanizedPosition": {
+   "row": 2,
+   "place": 1
+  },
+  "state": "available"
+ }, 
+ {
+  "id": 12,
+  "price": 290,
+  "priceGroup": "parter-row-1-1",
+  "imagePosition": {
+   "x": 50,
+   "y": 230
+  },
+  "humanizedPosition": {
+   "row": 2,
+   "place": 2
+  },
+  "state": "booked"
+ }, 
+ {
+  "id": 13,
+  "price": 290,
+  "priceGroup": "parter-row-1-1",
+  "imagePosition": {
+   "x": 90,
+   "y": 230
+  },
+  "humanizedPosition": {
+   "row": 2,
+   "place": 3
+  },
+  "state": "booked"
+ }, 
+ {
+  "id": 14,
+  "price": 290,
+  "priceGroup": "parter-row-1-1",
+  "imagePosition": {
+   "x": 250,
+   "y": 290
+  },
+  "humanizedPosition": {
+   "row": 2,
+   "place": 4
+  },
+  "state": "booked"
+ }, 
+ {
+  "id": 15,
+  "price": 290,
+  "priceGroup": "parter-row-1-1",
+  "imagePosition": {
+   "x": 290,
+   "y": 290
+  },
+  "humanizedPosition": {
+   "row": 2,
+   "place": 5
+  },
+  "state": "booked"
+ }, 
+ {
+  "id": 16,
+  "price": 290,
+  "priceGroup": "parter-row-1-1",
+  "imagePosition": {
+   "x": 330,
+   "y": 290
+  },
+  "humanizedPosition": {
+   "row": 2,
+   "place": 8
+  },
+  "state": "booked"
+ },
+ {
+  "id": 17,
+  "price": 290,
+  "priceGroup": "parter-row-1-1",
+  "imagePosition": {
+   "x": 510,
+   "y": 230
+  },
+  "humanizedPosition": {
+   "row": 2,
+   "place": 6
+  },
+  "state": "booked"
+ }, 
+ {
+  "id": 18,
+  "price": 290,
+  "priceGroup": "parter-row-1-1",
+  "imagePosition": {
+   "x": 550,
+   "y": 230
+  },
+  "humanizedPosition": {
+   "row": 2,
+   "place": 7
+  },
+  "state": "booked"
+ }, 
+ {
+  "id": 19,
+  "price": 290,
+  "priceGroup": "parter-row-1-1",
+  "imagePosition": {
+   "x": 590,
+   "y": 230
+  },
+  "humanizedPosition": {
+   "row": 2,
+   "place": 8
+  },
+  "state": "booked"
+ },
+
+ {
+  "id": 20,
+  "price": 290,
+  "priceGroup": "parter-row-1-1",
+  "imagePosition": {
+   "x": 10,
+   "y": 190
+  },
+  "humanizedPosition": {
+   "row": 1,
+   "place": 1
+  },
+  "state": "available"
+ }
+
+]
+}
