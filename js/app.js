@@ -10,7 +10,7 @@ let seatsDOM = [];
 
 class Seats {
 
-  async getSeats() {
+  async loadSeats() {
     try {
       let result = await fetch('seats.json');
       let data = await result.json();
@@ -38,6 +38,7 @@ class Seats {
     } catch (error) {
       console.log(error);
     }
+
   }
 }
 
@@ -114,16 +115,14 @@ class UI {
 
   setCartValues(cart) {
     let tempTotal = 0;
-    let itemsTotal = 0;
     let servicesTotal = 0;
     cart.map(item => {
       tempTotal += item.price;
-      itemsTotal += item.amount;
       servicesTotal += item.price * 0.1;
     });
     this.elements.cartTotal.innerText = tempTotal + servicesTotal;
     this.elements.ticketPrice.innerText = tempTotal;
-    this.elements.ticketTotal.innerText = itemsTotal;
+    this.elements.ticketTotal.innerText = `${cart.length}`;
     this.elements.ticketService.innerText = servicesTotal;
   }
 
@@ -160,19 +159,6 @@ class UI {
   showCart() {
     this.elements.mainPayment.style.display = 'none';
   }
-
-  // setupApp() {
-  //   cart = Storage.getCart();
-  //   this.setCartValues(cart);
-  //   this.populateCart(cart);
-  //   this.elements.ticketDelete.addEventListener('click', this.hideTicket);
-  // }
-
-
-  // hideTicket() {
-  //   this.elements.ticketsItem.style.display = 'none';
-  // }
-  
 
   
   getSingleItem(id) {
@@ -214,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
   );
   // ui.setupApp();
 
-  seats.getSeats().then(seats => {
+  seats.loadSeats().then(seats => {
     ui.displaySeats(seats);
     Storage.saveSeats(seats);
     //  ui.addSeatIntoCart();
