@@ -51,7 +51,6 @@ class UI {
     ticketPrice,
     ticketService,
     ticketDelete,
-    ticketsItem,
   }) {
     this.elements = {
       seatsWrap: document.querySelector(seatsWrap),
@@ -62,8 +61,9 @@ class UI {
       ticketPrice: document.querySelector(ticketPrice),
       ticketService: document.querySelector(ticketService),
       ticketDelete: document.querySelector(ticketDelete),
-      ticketsItem: document.querySelector(ticketsItem),
     }
+
+    // this.elements.ticketsItem.addEventListener('click', this.addClickListenerThatRemovesCartItem);
   }
 
   displaySeats(seats) {
@@ -128,6 +128,9 @@ class UI {
   }
 
   addTicket(item) {
+    const i = document.createElement('i');
+    i.classList.add('fas', 'fa-times', 'exit-icon');
+    i.dataset.id = item.id;
     const div = document.createElement('div');
     div.classList.add('payment-ticket-item', 'animate__animated', 'animate__backInRight');
     div.innerHTML = `
@@ -143,10 +146,15 @@ class UI {
          ${item.price} грн
         </div>
        </div>
-       <span class="exit-icon"><i class="fas fa-times"></i></span>
   `
-
-    this.elements.ticketsWrap.appendChild(div);
+    const ticketItem = this.elements.ticketsWrap.appendChild(div);
+    ticketItem.append(i);
+      i.addEventListener('click', (e) => {
+        const target = e.target;
+        let id = target.dataset.id;
+        target.parentElement.remove();
+      })
+    
   }
 
   showCart() {
@@ -161,14 +169,14 @@ class UI {
   // }
 
 
-  hideTicket() {
-    this.elements.ticketsItem.style.display = 'none';
-  }
+  // hideTicket() {
+  //   this.elements.ticketsItem.style.display = 'none';
+  // }
+  
 
-  cartItemRemove() {
-    this.elements.ticketsItem.addEventListener('click', e => {
-      console.log(e.target);
-    })
+  
+  getSingleItem(id) {
+    return seatsDOM.find(seat => seat.dataset.id === id);
   }
 }
 
@@ -196,14 +204,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const ui = new UI({
     seatsWrap: '.tickets__wrap-block-first',
     ticketsWrap: '.payment-ticket-item-wrap',
-    ticketsItem: '.payment-ticket-item',
     mainPayment: '.main__payment-reminders',
     cartTotal: '.main__payment-item-tickets-total',
     ticketTotal: '.main__payment-ticket-total',
     ticketPrice: '.main__payment-item-tickets',
     ticketService: '.main__payment-item-tickets-services',
     ticketDelete: '.exit-icon',
-  });
+  }
+  );
   // ui.setupApp();
 
   seats.getSeats().then(seats => {
@@ -211,20 +219,6 @@ document.addEventListener('DOMContentLoaded', () => {
     Storage.saveSeats(seats);
     //  ui.addSeatIntoCart();
   }).then(() => {
-    ui.cartItemRemove();
+    // ui.addClickListenerThatRemovesCartItem();
   })
 });
-
-
-
-
-// const priceGroupById = {
-//  'parter-row-1-2': {
-//   price: 200,
-//   style: '#aa0'
-//  },
-//  'parter-row-3-4': {
-//   price: 100,
-//   style: '#dee'
-//  }
-// }
