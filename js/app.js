@@ -52,11 +52,12 @@ class UI {
    seatsWrap: document.querySelector(seatsWrap),
    ticketsWrap: document.querySelector(ticketsWrap),
    mainPayment: document.querySelector(mainPayment),
-   ticketItem: document.querySelector(ticketItem),
   }
+
  }
 
  displaySeats(seats) {
+   
   let result = "";
   seats.forEach(seat => {
    result += `
@@ -65,12 +66,11 @@ class UI {
   });
 
   this.elements.seatsWrap.insertAdjacentHTML('afterbegin', result);
- }
 
- getSeat() {
-  const seats = [...document.querySelectorAll('.tickets__item')];
-  seatsDOM = seats;
-  seats.forEach(seat => {
+
+  const seatsItem = [...document.querySelectorAll('.tickets__item')];
+  seatsDOM = seatsItem;
+  seatsItem.forEach(seat => {
    let id = seat.dataset.id;
    seat.addEventListener('click', e => {
 
@@ -90,25 +90,40 @@ class UI {
     this.addTicket(cartItem);
 
     this.showCart();
-
-   });
-   seat.addEventListener('mouseenter', e => {
-    if (e.target.dataset.state == 'available') {
-     e.target.style.transform = 'scale(1.1)';
-    }
-   });
-
-   seat.addEventListener('mouseleave', e => {
-    if (e.target.dataset.state == 'available') {
-     e.target.style.transform = 'scale(1)';
-    }
    });
   });
  }
 
+//  addSeatIntoCart() {
+//   const seats = [...document.querySelectorAll('.tickets__item')];
+//   seatsDOM = seats;
+//   seats.forEach(seat => {
+//    let id = seat.dataset.id;
+//    seat.addEventListener('click', e => {
+
+//     const target = e.target;
+//     target.style.backgroundColor = '#00FF00';
+//     target.dataset.state == 'booked';
+//     if (target.dataset.state == 'booked') {
+//      target.style.backgroundColor = 'gray';
+//     }
+
+//     let cartItem = {...Storage.getSeats(id)};
+    
+//     cart = [...cart, cartItem];
+
+//     Storage.saveCart(cart);
+
+//     this.addTicket(cartItem);
+
+//     this.showCart();
+//    });
+//   });
+//  }
+
  addTicket(item) {
   const div = document.createElement('div');
-  div.classList.add('payment-ticket-item');
+  div.classList.add('payment-ticket-item', 'animate__animated', 'animate__backInRight');
   div.innerHTML = `
   <div class="payment-ticket-item-title">
         ПАРТЕР
@@ -124,16 +139,16 @@ class UI {
        </div>
   `
   this.elements.ticketsWrap.appendChild(div);
+
  }
 
  showCart() {
    this.elements.mainPayment.style.display = 'none';   
-   this.elements.ticketItem.style.transform = 'translateX(0)';
  }
 }
 
 class Storage {
- static saveSeats(seats) {
+ static saveSeats(seats) { 
   localStorage.setItem('seats', JSON.stringify(seats));
  }
 
@@ -152,15 +167,12 @@ const ui = new UI({
  seatsWrap: '.tickets__wrap-block-first',
  ticketsWrap: '.payment-ticket-item-wrap',
  mainPayment: '.main__payment-reminders',
- ticketItem: '.payment-ticket-item',
 });
-
 
 seats.getSeats().then(seats => {
  ui.displaySeats(seats);
  Storage.saveSeats(seats);
-}).then(() => {
- ui.getSeat();
+//  ui.addSeatIntoCart();
 });
 
 

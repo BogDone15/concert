@@ -149,9 +149,9 @@ header {
     transition: transform .2s linear;
 }
 
-/* .tickets__item:hover {
+.tickets__item[data-state="available"]:hover {
     transform: scale(1.1);
-} */
+}
 
 .tickets__wrap {
     display: flex;
@@ -167,8 +167,6 @@ header {
     margin: 1px;
 
 }
-
-
 
 /* payment */
 .main__concer-info {
@@ -187,7 +185,7 @@ header {
     display: flex;
     flex-direction: column;
     height: calc(100vh - 90px);
-    width: 340px;
+    width: 350px;
     margin-top: 90px;
     padding: 115px 30px 40px;
     background: #f5f5f5;
@@ -224,6 +222,10 @@ header {
     margin-bottom: 10px;
 }
 
+.payment-ticket-item-wrap {
+    transition: all .3s ease-in-out;
+}
+
 .payment-ticket-item {
     margin-bottom: 10px;
     padding: 15px 20px;
@@ -231,8 +233,8 @@ header {
     border-radius: 0 3px 3px 0;
     box-shadow: 0 2px 8px 0 rgb(0 0 0 / 15%);
     overflow: hidden;
-    transform: translateX(120%);
-    transition: transform .1s ease-in-out;
+    /* transform: translateX(120%);
+    transition: all .3s ease-in-out; */
 }
 
 .show {
