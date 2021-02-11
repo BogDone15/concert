@@ -165,7 +165,7 @@ class UI {
     this.elements.ticketsItem.style.display = 'none';
   }
 
-  cartRemove() {
+  cartItemRemove() {
     this.elements.ticketsItem.addEventListener('click', e => {
       console.log(e.target);
     })
@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
     Storage.saveSeats(seats);
     //  ui.addSeatIntoCart();
   }).then(() => {
-    ui.cartRemove();
+    ui.cartItemRemove();
   })
 });
 
