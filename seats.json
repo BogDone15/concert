@@ -252,21 +252,6 @@
    "place": 8
   },
   "state": "booked"
- },
-
- {
-  "id": 20,
-  "price": 290,
-  "priceGroup": "parter-row-1-1",
-  "imagePosition": {
-   "x": 10,
-   "y": 190
-  },
-  "humanizedPosition": {
-   "row": 1,
-   "place": 1
-  },
-  "state": "available"
  }
 
 ]
