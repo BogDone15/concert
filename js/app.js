@@ -97,8 +97,7 @@ class SeatsRenderer {
       this._addSeatIntoCart(cartItem);
 
       e.target.dataset.state = 'booked';
-      e.target.style.backgroundColor = 'gray';
-      e.target.style.pointerEvents = 'none';
+      e.target.classList.add('booked');
       this._setCartValues(cart);
     });
 
@@ -156,6 +155,8 @@ class SeatsRenderer {
 
   _removeItem(id) {
     cart = cart.filter(item => item.id !== id);
+    let remState = cart.find(item => item.id == id);
+    remState.classList.remove('booked');
     cart.length = cart.length - 1;
     Storage.saveCart(cart);
 

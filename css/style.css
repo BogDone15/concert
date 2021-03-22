@@ -374,3 +374,9 @@ header {
 .hide__price.active .main__price::before {
     transform: rotate(0);
 }
+
+.booked {
+    background-color: gray !important;
+    pointer-events: none;
+    transition: all .2s ease;
+}
