@@ -12,7 +12,8 @@
    "row": 1,
    "place": 1
   },
-  "state": "available"
+  "state": "available",
+  "color": "#176e20"
  }, 
  {
   "id": 2,
@@ -26,7 +27,8 @@
    "row": 1,
    "place": 2
   },
-  "state": "booked"
+  "state": "available",
+  "color": "#176e20"
  }, 
  {
   "id": 3,
@@ -40,11 +42,12 @@
    "row": 1,
    "place": 3
   },
-  "state": "booked"
+  "state": "booked",
+  "color": "#176e20"
  }, 
  {
   "id": 4,
-  "price": 290,
+  "price": 350,
   "priceGroup": "parter-row-1-1",
   "imagePosition": {
    "x": 250,
@@ -54,11 +57,12 @@
    "row": 1,
    "place": 4
   },
-  "state": "available"
+  "state": "available",
+  "color": "#0000cd"
  }, 
  {
   "id": 5,
-  "price": 290,
+  "price": 350,
   "priceGroup": "parter-row-1-1",
   "imagePosition": {
    "x": 290,
@@ -68,11 +72,12 @@
    "row": 1,
    "place": 5
   },
-  "state": "booked"
+  "state": "booked",
+  "color": "#0000cd"
  }, 
  {
   "id": 6,
-  "price": 290,
+  "price": 350,
   "priceGroup": "parter-row-1-1",
   "imagePosition": {
    "x": 330,
@@ -82,11 +87,12 @@
    "row": 1,
    "place": 8
   },
-  "state": "booked"
+  "state": "available",
+  "color": "#0000cd"
  },
  {
   "id": 7,
-  "price": 290,
+  "price": 320,
   "priceGroup": "parter-row-1-1",
   "imagePosition": {
    "x": 510,
@@ -96,11 +102,12 @@
    "row": 1,
    "place": 6
   },
-  "state": "booked"
+  "state": "booked",
+  "color": "#260b45"
  }, 
  {
   "id": 8,
-  "price": 290,
+  "price": 320,
   "priceGroup": "parter-row-1-1",
   "imagePosition": {
    "x": 550,
@@ -110,11 +117,13 @@
    "row": 1,
    "place": 7
   },
-  "state": "booked"
+  "state": "booked",
+  "color": "#260b45"
+  
  }, 
  {
   "id": 9,
-  "price": 290,
+  "price": 320,
   "priceGroup": "parter-row-1-1",
   "imagePosition": {
    "x": 590,
@@ -124,12 +133,13 @@
    "row": 1,
    "place": 8
   },
-  "state": "booked"
+  "state": "available",
+  "color": "#260b45"
  },
  
  {
   "id": 11,
-  "price": 290,
+  "price": 370,
   "priceGroup": "parter-row-1-1",
   "imagePosition": {
    "x": 10,
@@ -139,11 +149,12 @@
    "row": 2,
    "place": 1
   },
-  "state": "available"
+  "state": "booked",
+  "color": "#808000"
  }, 
  {
   "id": 12,
-  "price": 290,
+  "price": 370,
   "priceGroup": "parter-row-1-1",
   "imagePosition": {
    "x": 50,
@@ -153,11 +164,12 @@
    "row": 2,
    "place": 2
   },
-  "state": "booked"
+  "state": "available",
+  "color": "#808000"
  }, 
  {
   "id": 13,
-  "price": 290,
+  "price": 370,
   "priceGroup": "parter-row-1-1",
   "imagePosition": {
    "x": 90,
@@ -167,11 +179,12 @@
    "row": 2,
    "place": 3
   },
-  "state": "booked"
+  "state": "available",
+  "color": "#808000"
  }, 
  {
   "id": 14,
-  "price": 290,
+  "price": 390,
   "priceGroup": "parter-row-1-1",
   "imagePosition": {
    "x": 250,
@@ -181,11 +194,12 @@
    "row": 2,
    "place": 4
   },
-  "state": "booked"
+  "state": "available",
+  "color": "#ff8c00"
  }, 
  {
   "id": 15,
-  "price": 290,
+  "price": 390,
   "priceGroup": "parter-row-1-1",
   "imagePosition": {
    "x": 290,
@@ -195,11 +209,12 @@
    "row": 2,
    "place": 5
   },
-  "state": "booked"
+  "state": "booked",
+  "color": "#ff8c00"
  }, 
  {
   "id": 16,
-  "price": 290,
+  "price": 390,
   "priceGroup": "parter-row-1-1",
   "imagePosition": {
    "x": 330,
@@ -209,11 +224,12 @@
    "row": 2,
    "place": 8
   },
-  "state": "booked"
+  "state": "booked",
+  "color": "#ff8c00"
  },
  {
   "id": 17,
-  "price": 290,
+  "price": 370,
   "priceGroup": "parter-row-1-1",
   "imagePosition": {
    "x": 510,
@@ -223,11 +239,12 @@
    "row": 2,
    "place": 6
   },
-  "state": "booked"
+  "state": "booked",
+  "color": "#808000"
  }, 
  {
   "id": 18,
-  "price": 290,
+  "price": 370,
   "priceGroup": "parter-row-1-1",
   "imagePosition": {
    "x": 550,
@@ -237,11 +254,12 @@
    "row": 2,
    "place": 7
   },
-  "state": "booked"
+  "state": "available",
+  "color": "#808000"
  }, 
  {
   "id": 19,
-  "price": 290,
+  "price": 370,
   "priceGroup": "parter-row-1-1",
   "imagePosition": {
    "x": 590,
@@ -251,8 +269,8 @@
    "row": 2,
    "place": 8
   },
-  "state": "booked"
+  "state": "available",
+  "color": "#808000"
  }
-
 ]
 }

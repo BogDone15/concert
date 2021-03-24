@@ -202,6 +202,7 @@ header {
 
 .main__payment-block {
     height: calc(100% - 60px);
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -212,7 +213,7 @@ header {
     max-height: 30%;
     min-height: 30%;
     margin: -5px -15px 15px;
-    padding: 5px 15px 0;
+    padding: 32px 15px 0;
 }
 
 .main__payment-item {
@@ -221,14 +222,25 @@ header {
     margin-bottom: 10px;
 }
 
+.main__price.rotate:before{
+    transform: rotate(0deg) !important;
+}
+
 .payment-ticket-item {
     position: relative;
     margin-bottom: 10px;
+    width: calc(100% - 10px);
     padding: 15px 20px;
     background: #fff;
     border-radius: 0 3px 3px 0;
     box-shadow: 0 2px 8px 0 rgb(0 0 0 / 15%);
     overflow: hidden;
+}
+
+.payment-ticket-item-wrap {
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .payment__button {
@@ -376,7 +388,7 @@ header {
 }
 
 .booked {
-    background-color: gray !important;
+    background-color: #00FF00 !important;
     pointer-events: none;
     transition: all .2s ease;
 }
