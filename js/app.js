@@ -8,9 +8,13 @@ priceWrap.addEventListener('click', () => {
 });
 
 let cart = [];
-// let seatsDOM = [];
+let seatsDOM = [];
 
 class Seats {
+  constructor() {
+    this._renderer = new SeatsRenderer(this);
+  }
+  
   async loadSeats() {
     const response = await fetch('seats.json');
     const data = await response.json();
@@ -37,6 +41,7 @@ class Seats {
     });
 
     this._seats = seats;
+    this._renderer.render();
   }
 
   get() {
@@ -44,10 +49,11 @@ class Seats {
     return this._seats;
   }
 
-  // getSeat(id) {
-
-  //   return this._seats.find(seat => seat.id == id);
-  // }
+  changeState(id, state) {
+    const seat = this._seats.find(seat => seat.id == id);
+    seat.state = state;
+    this._renderer._renderCorrectSeat(seat);
+  }
 }
 
 class SeatsRenderer {
@@ -60,6 +66,7 @@ class SeatsRenderer {
     this._ticketPrice = document.querySelector('.main__payment-item-tickets');
     this._ticketTotal = document.querySelector('.main__payment-ticket-total');
     this._ticketService = document.querySelector('.main__payment-item-tickets-services');
+    this._arrangeBtn = document.querySelector('.payment__button');
   }
 
   render() {
@@ -74,6 +81,16 @@ class SeatsRenderer {
     });
   }
 
+  _renderCorrectSeat(seat) {
+    seatsDOM.forEach((seat) => {
+      const id = cart.find(item => item.seat.id = seat.id);
+      console.log(id);
+    });
+
+    const renderResumeSeat = this._renderSeats(seat);
+    this._seatsWrapper.appendChild(renderResumeSeat);
+  }
+
   _renderSeats(seat) {
     const wrapper = document.createElement('div');
     wrapper.classList.add('tickets__item');
@@ -84,23 +101,28 @@ class SeatsRenderer {
     top: ${seat.imagePosition.y}px;
     `;
 
+    this._seatDOMsById = {
+      id: seat.id,
+      item: wrapper
+    }
+
+    seatsDOM = [...seatsDOM, this._seatDOMsById];
+    
     if (wrapper.dataset.state == 'booked') {
       wrapper.style.pointerEvents = 'none';
       wrapper.style.backgroundColor = 'gray';
-    }
+    } 
 
     wrapper.addEventListener('click', e => {
       const cartItem = {
         id: `${(Math.random() * 1e8).toFixed()}`,
         seatId: seat.id,
         seat: seat
-     };
+      };
 
       cart = [...cart, cartItem];
-      // Storage.saveCart(cart);
 
       this._addSeatIntoCart(cartItem);
-     console.log(cart);
       e.target.dataset.state = 'booked';
       e.target.classList.add('booked');
       this._setCartValues(cart);
@@ -132,15 +154,17 @@ class SeatsRenderer {
     ticketItem.append(button);
 
     button.addEventListener('click', e => {
-      // debugger;
       const removeItem = e.target;
       const id = item.id;
-      console.log(id);
       removeItem.parentElement.remove();
       this._removeItem(id);
+
+      this._model.changeState(item.seatId, 'available');
     });
-    
+
     this._mainPayment.style.display = 'none';
+
+    if (cart.length >= 1) this._arrangeBtn.disabled = true;
   }
 
   _setCartValues(cart) {
@@ -157,24 +181,14 @@ class SeatsRenderer {
   }
 
   _removeItem(id) {
-    // debugger;
     cart = cart.filter(item => item.id != id);
-    // Storage.saveCart(cart);
-    console.log(cart);
     this._setCartValues(cart);
-    cart.length >=1 ? this._mainPayment.style.display = 'none' : this._mainPayment.style.display = 'block';
+
+    cart.length >= 1 ? this._mainPayment.style.display = 'none' : this._mainPayment.style.display = 'block';
+    cart.length >= 1 ? this._arrangeBtn.disabled = true : this._arrangeBtn.disabled = false;
   }
 }
 
-// class Storage {
-//   static saveCart(cart) {
-//     localStorage.setItem('cart', JSON.stringify(cart));
-//   }
-// }
-
 const seats = new Seats();
-const seatsRenderer = new SeatsRenderer(seats);
 
-seats.loadSeats().then(seats => {
-  seatsRenderer.render(seats);
-});
+seats.loadSeats();
