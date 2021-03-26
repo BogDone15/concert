@@ -82,13 +82,21 @@ class SeatsRenderer {
   }
 
   _renderCorrectSeat(seat) {
-    seatsDOM.forEach((seat) => {
-      const id = cart.find(item => item.seat.id = seat.id);
-      console.log(id);
-    });
+    // seatsDOM.forEach((seat) => {
+    //   // const id = cart.find(item => item.seat.id = seat.id);
+    //   // console.log(seat.id);
+    //   console.log(cart);
+    // });
 
     const renderResumeSeat = this._renderSeats(seat);
     this._seatsWrapper.appendChild(renderResumeSeat);
+  }
+
+  _getSingleSeat() {
+    seatsDOM.forEach((seat) => {
+      const id = cart.find(item => item.seatId === seat.id);
+      console.log(id);
+    });
   }
 
   _renderSeats(seat) {
@@ -154,6 +162,7 @@ class SeatsRenderer {
     ticketItem.append(button);
 
     button.addEventListener('click', e => {
+      this._getSingleSeat();
       const removeItem = e.target;
       const id = item.id;
       removeItem.parentElement.remove();
