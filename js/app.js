@@ -8,7 +8,6 @@ priceWrap.addEventListener('click', () => {
 });
 
 let cart = [];
-let seatsDOM = [];
 
 class Seats {
   constructor() {
@@ -67,13 +66,14 @@ class SeatsRenderer {
     this._ticketTotal = document.querySelector('.main__payment-ticket-total');
     this._ticketService = document.querySelector('.main__payment-item-tickets-services');
     this._arrangeBtn = document.querySelector('.payment__button');
+    this._seatDOMsById = {};
   }
-
+  
   render() {
     const seats = this._model.get();
 
     const seatsDomElements = seats.map(seat => {
-      return this._renderSeats(seat);
+      return this._renderSeat(seat);
     });
 
     seatsDomElements.forEach(element => {
@@ -82,25 +82,14 @@ class SeatsRenderer {
   }
 
   _renderCorrectSeat(seat) {
-    // seatsDOM.forEach((seat) => {
-    //   // const id = cart.find(item => item.seat.id = seat.id);
-    //   // console.log(seat.id);
-    //   console.log(cart);
-    // });
 
-    const renderResumeSeat = this._renderSeats(seat);
+    const renderResumeSeat = this._renderSeat(seat);
     this._seatsWrapper.appendChild(renderResumeSeat);
   }
 
-  _getSingleSeat() {
-    seatsDOM.forEach((seat) => {
-      const id = cart.find(item => item.seatId === seat.id);
-      console.log(id);
-    });
-  }
-
-  _renderSeats(seat) {
-    const wrapper = document.createElement('div');
+  _renderSeat(seat) {
+    const wrapper = this._seatDOMsById[seat.id] || document.createElement('div');
+    wrapper.innerHTML = '';
     wrapper.classList.add('tickets__item');
     wrapper.dataset.state = `${seat.state}`;
     wrapper.style.cssText = `
@@ -108,18 +97,17 @@ class SeatsRenderer {
     left: ${seat.imagePosition.x}px;
     top: ${seat.imagePosition.y}px;
     `;
+    this._arrangeBtn.disabled = true;
 
-    this._seatDOMsById = {
-      id: seat.id,
-      item: wrapper
-    }
+    this._seatDOMsById[seat.id] = wrapper;
 
-    seatsDOM = [...seatsDOM, this._seatDOMsById];
-    
     if (wrapper.dataset.state == 'booked') {
       wrapper.style.pointerEvents = 'none';
       wrapper.style.backgroundColor = 'gray';
-    } 
+    } else if (wrapper.dataset.state == 'available') {
+      wrapper.style.pointerEvents = 'auto';
+      wrapper.classList.remove('booked');
+    }
 
     wrapper.addEventListener('click', e => {
       const cartItem = {
@@ -162,7 +150,6 @@ class SeatsRenderer {
     ticketItem.append(button);
 
     button.addEventListener('click', e => {
-      this._getSingleSeat();
       const removeItem = e.target;
       const id = item.id;
       removeItem.parentElement.remove();
@@ -173,7 +160,7 @@ class SeatsRenderer {
 
     this._mainPayment.style.display = 'none';
 
-    if (cart.length >= 1) this._arrangeBtn.disabled = true;
+    if (cart.length >= 1) this._arrangeBtn.disabled = false;
   }
 
   _setCartValues(cart) {
